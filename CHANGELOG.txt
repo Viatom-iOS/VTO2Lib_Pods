@@ -1,3 +1,6 @@
+## v1.9.7
+   Fix some bugs.
+
 ## v1.9.6
    Fix a bug which case O2M disconnected.
 
