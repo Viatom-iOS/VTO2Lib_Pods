@@ -24,9 +24,7 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                --------------------------------------------
-                   DESC
+  spec.description  = "The SDK supports Lepu's wearable blood oxygen monitoring devices, but excludes the O2Ring II product. The SDK only handles device data communication and does not manage device connection processes. For basic device connection implementation, developers can refer to simplified connection code examples provided in the Demo."
 
   spec.homepage     = "https://github.com/Viatom-iOS/VTO2Lib_Pods"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -79,7 +77,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/Viatom-iOS/VTO2Lib_Pods", :tag => spec.version }
+  spec.source       = { :git => "https://github.com/Viatom-iOS/VTO2Lib_Pods.git", :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
