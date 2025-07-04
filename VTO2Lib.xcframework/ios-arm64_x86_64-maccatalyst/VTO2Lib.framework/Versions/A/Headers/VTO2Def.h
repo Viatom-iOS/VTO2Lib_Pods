@@ -62,6 +62,10 @@ typedef enum : u_char {
 } VTA5Cmd;
 
 typedef enum : u_char {
+    VTBabyS3CmdRunParams = 0x02,
+} VTBabyS3Cmd;
+
+typedef enum : u_char {
     VTA5RespRequest = 0x00,            ///< request
     VTA5RespNormal = 0x01,             ///< normal
     VTA5RespNotFound = 0xE0,           ///< not found file
@@ -76,6 +80,12 @@ typedef enum : u_char {
     VTA5RespHeadError = 0xCC,
     VTA5RespCRCError = 0xCD,
 } VTA5RespRes;
+
+
+typedef enum : u_char{
+    CHANNAL_SPO2_PR = 0,                //SpO2 + PR
+    CHANNEL_SPO2_PR_MOTION,             //SpO2 + PR + Motion
+} VTSleepO2Channel_t;
 
 
 #pragma mark - peripheral information's params
@@ -136,7 +146,7 @@ typedef struct{
     uint8_t     battery_state;      ///< battery state    0: normal  1: charging  2: charge full 3: low
     uint8_t     battery_percent;    ///< battery percent
     uint8_t     reserved[6];
-} Parameters;
+} VTParameters;
 
 typedef struct {
     uint32_t index;            //波形数据第一个点相对于起始点的编号 暂无使用
@@ -166,6 +176,93 @@ typedef struct {
     uint16_t sampling_num;
     VTA5Axis *data;
 } VTA5Acc;
+
+
+typedef struct {
+    uint8_t quiet;
+    uint8_t state;
+    uint8_t reserved[10];
+} VTO2SleepState;
+
+typedef struct {
+    uint32_t start_timestamp;       // 首次入睡时间，若未入睡为0
+    uint32_t end_timestamp;         // 最后一次出睡时间，睡眠时为当前时间
+    uint32_t awake_duration;        // 清醒时长
+    uint32_t deep_duration;         // 深睡时长
+    uint32_t light_duration;        // 浅睡时长
+    uint32_t total_duration;        // 总睡眠时长
+    uint8_t wake_count;             // 清醒次数，大于250不再做统计
+    uint8_t reserved[15];
+} VTO2SleepReport;
+
+typedef struct {
+    VTO2SleepReport report;         // 当前报告
+    VTO2SleepState  state;          // 当前状态
+} VTO2SleepRTInfo;
+
+typedef struct {
+    uint32_t record_time;           // 已记录时长    单位:second    暂无使用
+    uint8_t run_status;             // 运行状态 0:准备阶段 1:测量准备阶段 2:测量中 3:测量结束
+    uint8_t sensor_state;           // 传感器状态 0:正常状态 1:未放手指 2:SENSOR_STA_PROBE_OUT 3: 传感器或探头故障
+    uint8_t spo2;
+    uint8_t pi;                     // PI值*10 e.g.  15 : PI = 1.5
+    uint16_t pr;
+    uint8_t flag;                   // 标志参数 bit0:脉搏音标志
+    uint8_t motion;                 // 体动
+    uint8_t battery_state;          // 电池状态 e.g.   0:正常使用 1:充电中 2:充满 3:低电量
+    uint8_t battery_percent;        // 电池状态 e.g.    电池电量百分比
+    uint8_t alram_state;
+    uint8_t reserved[13];
+    VTO2SleepRTInfo sleep_info;
+} VTO2SleepRunParams;
+
+
+
+typedef struct {
+    unsigned char file_version;        //文件版本 e.g.  0x01 :  V1
+    unsigned char operation_mode;            //血氧数据文件 0x03
+    unsigned short year;
+    unsigned char month;
+    unsigned char day;
+    unsigned char hour;
+    unsigned char minute;
+    unsigned char second;
+    unsigned int size;
+} VTO2FileHead_t;
+
+typedef struct {
+    unsigned char spo2;
+    unsigned char pr;
+    unsigned char motion:6;            //16 = 1g
+    unsigned char remind_hr:1;
+    unsigned char remind_spo2:1;
+    unsigned char quiet:4;        //安静值
+    unsigned char sleep_state:4;    //睡眠状态
+} VTO2SleepPointData_t;
+
+
+typedef struct {        //16字节
+    unsigned short record_time;             // 记录时长
+    unsigned short asleep_time;                //睡着时间
+    unsigned char average_spo2;                //平均血氧
+    unsigned char lowest_spo2;                //最低血氧
+    unsigned char _3percent_drops;            //3%drops
+    unsigned char _4percent_drops;            //4%drops
+    unsigned short _90percent_duration;        // 90%持续时间
+    unsigned char _90percent_drops;            // 90%跌落次数
+    unsigned char  T90;                        //T90        <90%占总时间百分比
+    unsigned char O2_score;                //O2得分
+    unsigned int step_counter;                //计步结果
+    unsigned short average_hr;                //平均心率
+    unsigned char reserved[8];
+ } VTO2SleepAnalysisResult;
+
+typedef struct {        // 8个字节
+    VTO2SleepAnalysisResult result; // 16 bytes
+    VTO2SleepReport sleep; // 40 bytes
+} VTO2SleepFileTail_t;
+
+
 #pragma pack()
 
 

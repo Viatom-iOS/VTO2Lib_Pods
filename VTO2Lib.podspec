@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "VTO2Lib"
-  spec.version      = "1.9.7"
+  spec.version      = "1.10.0"
   spec.summary      = "Support communication between Lepu's O2 series products and iOS devices."
 
   # This description is used to generate tags and improve search results.
@@ -116,23 +116,7 @@ Pod::Spec.new do |spec|
 
   # spec.framework  = "VTO2Lib.xcframework"
   spec.vendored_frameworks = "VTO2Lib.xcframework"
-
-  # spec.library   = "iconv"
-  # spec.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # spec.requires_arc = true
-
-  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
-  # spec.user_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
-  # spec.pod_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
-
+  spec.public_header_files = "VTO2Lib.xcframework/*/VTO2Lib.framework/Headers/*.h"
+  spec.source_files = "VTO2Lib.xcframework/**/Headers/*.h"
 
 end
