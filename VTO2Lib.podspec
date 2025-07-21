@@ -22,29 +22,8 @@ Pod::Spec.new do |spec|
 
     spec.source       = { :git => "https://github.com/Viatom-iOS/VTO2Lib_Pods.git", :tag => spec.version }
 
+
     spec.vendored_frameworks = "VTO2Lib.xcframework"
-    # 使用主框架路径，不直接指定架构
-    spec.public_header_files = "VTO2Lib.xcframework/VTO2Lib.framework/Headers/*.h"
-    spec.source_files = "VTO2Lib.xcframework/VTO2Lib.framework/Headers/*.h"
-
-    spec.script_phase = {
-        :name => 'Setup VTO2Lib headers',
-        :script => <<-SCRIPT
-        # 创建统一的头文件目录
-        UNIFIED_HEADERS_DIR="${PODS_ROOT}/VTO2Lib/Headers"
-        mkdir -p "${UNIFIED_HEADERS_DIR}"
-
-        # 复制当前架构的头文件
-        ARCH_PATH=$(ls ${PODS_ROOT}/VTO2Lib/VTO2Lib.xcframework | grep -E 'ios-|macos-' | head -1)
-        cp -R "${PODS_ROOT}/VTO2Lib/VTO2Lib.xcframework/${ARCH_PATH}/VTO2Lib.framework/Headers/" "${UNIFIED_HEADERS_DIR}"
-
-        # 更新public_header_files路径
-        sed -i '' 's|VTO2Lib.xcframework/VTO2Lib.framework/Headers|Headers|g' "${PODS_ROOT}/Target Support Files/VTO2Lib/VTO2Lib.podspec.json"
-
-        # 创建必要的符号链接
-        ln -sfh "${UNIFIED_HEADERS_DIR}" "${PODS_ROOT}/VTO2Lib/VTO2Lib.xcframework/VTO2Lib.framework/Headers"
-        SCRIPT,
-        :execution_position => :before_compile
-    }
-
+    spec.public_header_files = "VTO2Lib.xcframework/*/VTO2Lib.framework/Headers/*.h"
+    spec.source_files = "VTO2Lib.xcframework/**/Headers/*.h"
 end
