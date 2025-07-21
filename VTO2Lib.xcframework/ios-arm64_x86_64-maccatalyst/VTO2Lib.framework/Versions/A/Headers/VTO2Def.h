@@ -203,7 +203,7 @@ typedef struct {
 typedef struct {
     uint32_t record_time;           // 已记录时长    单位:second    暂无使用
     uint8_t run_status;             // 运行状态 0:准备阶段 1:测量准备阶段 2:测量中 3:测量结束
-    uint8_t sensor_state;           // 传感器状态 0:正常状态 1:未放手指 2:SENSOR_STA_PROBE_OUT 3: 传感器或探头故障
+    uint8_t sensor_state;           // 传感器状态 0:脱落或者拔出或者故障 1:正常测量状态
     uint8_t spo2;
     uint8_t pi;                     // PI值*10 e.g.  15 : PI = 1.5
     uint16_t pr;
