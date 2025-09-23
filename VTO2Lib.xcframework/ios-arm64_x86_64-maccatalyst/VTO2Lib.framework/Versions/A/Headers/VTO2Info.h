@@ -86,6 +86,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief volume of reminder sound.  For O2 max 20 - 100 interval :20
 @property (nonatomic, copy) NSString *curBuzzer;
 
+/// @brief handedness mode.  0 : left    1 : right
+@property (nonatomic, strong) NSString *handedness;
+
 // for New BabyO2
 @property (nonatomic, copy) NSString *MtSW;
 @property (nonatomic, copy) NSString *MtThr;

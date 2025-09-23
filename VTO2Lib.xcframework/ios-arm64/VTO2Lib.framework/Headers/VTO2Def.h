@@ -107,10 +107,18 @@ typedef enum : NSUInteger {
     VTParamTypeIvSw,                // switch 0 - off 1 - on
     VTParamTypeIvThr,               // invalid value threshold.
     VTParamTypeSpO2Sw,              // switch 0 - off 1 - on
+    VTParamTypeHandedness           // handedness 0 - left 1 - right
 } VTParamType;
 
 
 #pragma mark - station babyo2 s2
+
+typedef struct {
+    u_char burn_flag;       //烧录标记    e.g. bit0:SN  bit1:硬件版本  bit2:Branch Code
+    u_char sn[11];
+    u_char hw_version;      //硬件版本    ‘A’-‘Z’
+    u_char branch_code[8];  //Branch编码
+} VTO2FactoryConfig;
 
 typedef struct {
     u_char len;                     // serial numbers length  e.g. 10
@@ -203,7 +211,7 @@ typedef struct {
 typedef struct {
     uint32_t record_time;           // 已记录时长    单位:second    暂无使用
     uint8_t run_status;             // 运行状态 0:准备阶段 1:测量准备阶段 2:测量中 3:测量结束
-    uint8_t sensor_state;           // 传感器状态 0:脱落或者拔出或者故障 1:正常测量状态
+    uint8_t sensor_state;           // 传感器状态 0:正常状态 1:未放手指 2:SENSOR_STA_PROBE_OUT 3: 传感器或探头故障
     uint8_t spo2;
     uint8_t pi;                     // PI值*10 e.g.  15 : PI = 1.5
     uint16_t pr;

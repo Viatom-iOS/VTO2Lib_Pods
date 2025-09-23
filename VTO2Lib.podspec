@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
 
     spec.name         = "VTO2Lib"
-    spec.version      = "1.10.1"
+    spec.version      = "1.10.2"
     spec.summary      = "Support communication between Lepu's O2 series products and iOS devices."
 
     spec.description  = "The SDK supports Lepu's wearable blood oxygen monitoring devices, but excludes the O2Ring II product. The SDK only handles device data communication and does not manage device connection processes. For basic device connection implementation, developers can refer to simplified connection code examples provided in the Demo."
