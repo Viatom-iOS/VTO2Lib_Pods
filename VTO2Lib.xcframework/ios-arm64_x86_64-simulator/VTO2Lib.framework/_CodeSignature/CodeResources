@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/VTO2Def.h</key>
 		<data>
-		MiEJwqvdjC6R0p/cA28H0Eb34Ks=
+		w9YtTZR/wwH5CkDNJ1+4IXP16vk=
 		</data>
 		<key>Headers/VTO2Info.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oa8mQx3hZqjXBbCYcZowTVHtMhY=
+		FybJdX/pcfmGYvZw4iaqKuTZSrI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -49,10 +49,6 @@
 	<dict>
 		<key>Headers/VTO2Communicate.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HEt2/VpsSk1cJtHLmd5/cVaOpA0=
-			</data>
 			<key>hash2</key>
 			<data>
 			KloyLgJ29zRPljjPIQXi0QhHjKofvoe/Da2weFPo5cA=
@@ -60,21 +56,13 @@
 		</dict>
 		<key>Headers/VTO2Def.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MiEJwqvdjC6R0p/cA28H0Eb34Ks=
-			</data>
 			<key>hash2</key>
 			<data>
-			fS2k4JFLsgwaZ0ijh+GdXZmyKzGqJ4VgIgiO+bdefLQ=
+			UVKKrwnnwY+PNA9OEqneWe0Sxu090WThFHpQk0tmAno=
 			</data>
 		</dict>
 		<key>Headers/VTO2Info.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			00MgjkFVG6s+EdhVNnC5x+T2MeQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			F1B/irkcZTkDQdFQS4AS1NUKi7S3XAQi1kDEZwaNPRA=
@@ -82,10 +70,6 @@
 		</dict>
 		<key>Headers/VTO2Lib.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			S8IJuHHNvJvONmfcdBO3zYacBfI=
-			</data>
 			<key>hash2</key>
 			<data>
 			p1d+RV12fY9qgZYZ4dX3E4WsPJvxO2SMPtDSqkYRFLU=
@@ -93,10 +77,6 @@
 		</dict>
 		<key>Headers/VTO2Object.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LmedFaWVjITzi6t7RfFM/aQXPS4=
-			</data>
 			<key>hash2</key>
 			<data>
 			W2d7+q2QCssmCW4guKz9cCv6Ix1v4KvwBkbZSAdWHB8=
@@ -104,10 +84,6 @@
 		</dict>
 		<key>Headers/VTO2Parser.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			l+A7EBhI2I46iHKA1u3AlobZ6oM=
-			</data>
 			<key>hash2</key>
 			<data>
 			emlGzeUGK6NB9eG/ywHhIlxi3+183ss8vGO9oiMzDso=
@@ -115,10 +91,6 @@
 		</dict>
 		<key>Headers/VTO2WaveObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			W3CwqfHxA8hHt64eUs9B0ijdNa8=
-			</data>
 			<key>hash2</key>
 			<data>
 			rt38UOL/SuQ88gtCHGPDKwal8moOUWmZ/nZuexPvBMA=
@@ -126,10 +98,6 @@
 		</dict>
 		<key>Headers/VTRealObject.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3oqPL0R+cI22f/RoVQK1cwA5cUg=
-			</data>
 			<key>hash2</key>
 			<data>
 			FzobFbcd4uN3QMM34SOl2mhZ2QDuQ0M7c9EUle7Dk98=
@@ -137,10 +105,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			yk7LWsnNMZZgafgor95b758G6MQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			opeXqc1su8Y7aM76M1v6Vgu54+tqCbgg0ckfre+lU5I=
