@@ -62,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param RSSI rssi
 - (void)updatePeripheralRSSI:(NSNumber *)RSSI;
 
+/// <#Description#>
+- (void)openupEncryptResult:(VTCommonResult)result;
+
 @end
 
 @protocol VTO2A5RespDelegate <NSObject>

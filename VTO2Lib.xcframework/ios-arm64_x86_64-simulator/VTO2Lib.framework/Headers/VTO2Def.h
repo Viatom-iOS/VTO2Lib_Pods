@@ -23,9 +23,9 @@ typedef enum : NSUInteger {
 } VTFileLoadResult;  /// @brief result of download file from peripheral
 
 typedef enum : NSUInteger {
-    VTCommonResultSuccess,
-    VTCommonResultTimeOut,
     VTCommonResultFailed,
+    VTCommonResultSuccess,
+    VTCommonResultUnsupport,
 } VTCommonResult; /// @brief result of normal command
 
 typedef enum : u_char {
@@ -49,6 +49,8 @@ typedef enum : u_char {
     VTCmdGetRealWave = 0x1B,
     VTCmdGetPPG = 0x1C,
     VTCmdGetStationInfo = 0x1D,
+    
+    VTCmdOpenupEncryption = 0xFF,
     
 } VTCmd;
 
